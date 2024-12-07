@@ -1,0 +1,572 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 100px; 
+    background: #305d97;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    box-shadow: 0 0 100px rgb(0, 0, 0);
+}
+
+.Raja img {
+    position: relative;
+    user-select: none;
+    margin-left: -50px;
+}
+
+h2 {
+    position: relative;
+    color: white;
+    -webkit-text-stroke: .5px black;
+    font-size: xx-large;
+    text-shadow: -3px 3px #190e4f;
+    
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1 em;
+    color: white;
+    font-weight: 500;
+    margin-left: 40px;
+    text-shadow: -3px 2px #190e4f;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .3s
+}
+
+.navigation a:hover::after{
+    transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup {
+    position: relative;
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid navy;
+    outline: none;
+    border-radius: 75px;
+    cursor: pointer;
+    font-size: 1.3em;
+    color: navy;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: .5s;
+}
+
+.navigation a:hover::after {
+    transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup:hover {
+    background: navy;
+    color: white;
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: transparent;
+    border: 2px solid rgba(225,255,255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 30px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform 1s ease, height.2s ease;
+}
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height: 520px;
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login {
+    transition: transform .50s ease;
+    transform: translateX(0);
+}
+.wrapper.active .form-box.login {
+    transition: transform .40s ease-out;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register {
+    position: absolute;
+    transition: transform .40s ease-out;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register {
+    transition: transform .50s ease;
+    transform: translateX(0);
+}
+
+
+.wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background:rgb(20, 5, 75);
+    font-size: 2.5em;
+    color: white;   
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    border-bottom-left-radius: 20px;
+    z-index: 1;
+}
+
+.form-box h3 {
+    font-size: 2em;
+    color:black;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid rgb(20, 5, 75);
+    border-top: 2px;
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color:rgb(0, 7, 104);
+    font-weight: 500;
+    pointer-events:fill;
+    transition: .5s;
+}
+
+.input-box input:focus + label,
+.input-box input:valid + label
+{
+    top: -5px; 
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size:  1em;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 10px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+
+.input-box .eye {
+    position: absolute;
+    right: 35px;
+    font-size: 1.4em;
+    color: #162938;
+    line-height: 65px;
+    cursor: pointer;
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: whitesmoke;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: #162916;
+    margin: 5px;
+}
+
+.remember-forgot a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+    background-color: #f740e5;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+}
+
+.login-register {
+    font-size: .9em;
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    color: rgb(183, 79, 187);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 320px) {
+    header {
+        padding: 5px 20px;
+        justify-content: space-evenly;
+    }
+
+    .Raja img {
+        width: 70px;
+        height: auto;
+        margin-left: -15px;
+    }
+    
+    h2 {
+        font-size: .8em;
+        margin-left: 9px;
+
+    }
+
+    .navigation a{
+        font-size: 1em;
+        margin-left: 14px;
+    }
+
+    .navigation .btnLogin-popup {
+        font-size: 1em;
+        margin-left: 10px;
+        margin-top: 5px;
+        width: 120px;
+        height: 40px;
+    }
+
+    .input-box .eye {
+        top: -2px;
+    }
+
+    .input-box {
+        height: 40px;
+        margin: 20px 0;
+    }
+
+    .input-box label {
+        font-size: 0.9em;
+    }
+
+    .input-box input {
+        font-size: 0.9em;
+    }
+
+    .btn {
+        height: 35px;
+        font-size: 0.9em;
+    }
+
+    .login-register {
+        font-size: 0.8em;
+        margin: 20px 0 5px;
+    }
+}
+
+@media only screen and (min-width:321px) and (max-width: 375px) {
+    header {
+        padding: 10px 20px;
+        justify-content: space-evenly;
+    }
+    
+    .Raja img {
+        width: 70px;
+        height: auto;
+        margin-left: -15px;
+    }
+
+    h2 {
+        font-size: .87em;
+        margin-left: 9px;
+        margin-right: 1px;
+    }
+
+    .input-box .eye {
+        top: -2px;
+    }
+    .navigation a{
+        font-size: 1em;
+        margin-left: 13px;
+    }
+
+    .navigation .btnLogin-popup {
+        font-size: 1em;
+        margin-left: 10px;
+        margin-top: 5px;
+        width: 120px;
+    }
+
+    .input-box {
+        height: 40px;
+        margin: 20px 0;
+    }
+
+    .input-box label {
+        font-size: 0.9em;
+    }
+
+    .input-box input {
+        font-size: 0.9em;
+    }
+
+    .btn {
+        height: 35px;
+        font-size: 0.9em;
+    }
+
+    .login-register {
+        font-size: 0.8em;
+        margin: 20px 0 5px;
+    }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+
+    header {
+        padding: 5px 20px;
+        justify-content: space-evenly;
+    }
+
+    .Raja img {
+        width: 80px;
+        height: auto;
+        margin-left: -15px;
+    }
+
+    h2 {
+        font-size: .98em;
+        margin-left: 15px;
+        margin-right: 1px;
+    }
+.input-box .eye {
+        top: -2px;
+    }
+    .navigation a{
+        font-size: 1em;
+        margin-left: 10px;
+    }
+
+    .navigation .btnLogin-popup {
+        font-size: 1em;
+        margin-left: 0px;
+        margin-top: 5px;
+    }
+
+    .input-box {
+        height: 40px;
+        margin: 20px 0;
+    }
+
+    .input-box label {
+        font-size: 0.9em;
+    }
+
+    .input-box input {
+        font-size: 0.9em;
+    }
+
+    .btn {
+        height: 35px;
+        font-size: 0.9em;
+    }
+
+    .login-register {
+        font-size: 0.8em;
+        margin: 20px 0 5px;
+    }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+
+    header {
+        padding: 5px 20px;
+        justify-content: space-evenly;
+    }
+
+    .Raja img {
+        width: 100px;
+        height: auto;
+        margin-left: -15px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        margin-left: 50px;
+        margin-right: 10px;
+    }
+
+    .navigation a{
+        font-size: 1em;
+        margin-left: 13px;
+    }
+
+    .navigation .btnLogin-popup {
+        font-size: 1em;
+        margin-left: 10px;
+        margin-top: 5px;
+        width: 120px;
+    }
+
+
+    .input-box {
+        height: 45px;
+        margin: 25px 0;
+    }
+
+    .input-box label {
+        font-size: 1em;
+    }
+
+    .input-box input {
+        font-size: 1em;
+    }
+
+    .btn {
+        height: 40px;
+        font-size: 1em;
+    }
+
+    .login-register {
+        font-size: 0.9em;
+        margin: 25px 0 10px;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+
+    header {
+        padding: 5px 20px;
+        justify-content: space-evenly;
+    }
+
+    .Raja img {
+        width: 100px;
+        height: auto;
+        margin-left: -15px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        margin-left: 50px;
+        margin-right: 10px;
+    }
+
+    .navigation a{
+        margin-left: 10px;
+    }
+
+    .navigation .btnLogin-popup {
+        font-size: 1em;
+        margin-left: 10px;
+        margin-top: 5px;
+        width: 120px;
+    }
+
+    .input-box {
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .input-box label {
+        font-size: 1em;
+    }
+
+    .input-box input {
+        font-size: 1em;
+    }
+
+    .btn {
+        height: 45px;
+        font-size: 1.1em;
+    }
+
+    .login-register {
+        font-size: 1em;
+        margin: 30px 0 15px;
+    }
+}
+
+@media only screen and (max-width:1440px){
+
+    header {
+        padding: 5px 20px;
+        justify-content: space-evenly;
+    }
+}
